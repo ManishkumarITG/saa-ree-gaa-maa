@@ -12,10 +12,14 @@ async function getOtp(e_mail) {
     }
 }
 
+async function SignUp(Data) {
+    
+}
+
 //Login  User
 async function LoginUser(Data) {
     try {
-        const response = await axios.post(`${API_BASE_URL}/auth/login`, { Data});
+        const response = await axios.post(`${API_BASE_URL}/auth/Login`, { Data});
         return response.data;
     } catch (error) {
         console.log(error);
