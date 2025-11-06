@@ -13,7 +13,12 @@ async function getOtp(e_mail) {
 }
 
 async function SignUp(Data) {
-    
+    try {
+        const response = await axios.post(`${API_BASE_URL}/auth/Signup`, { Data });
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 //Login  User
@@ -26,8 +31,20 @@ async function LoginUser(Data) {
     }
 }
 
+//Update User Information
+async function UpdateInformation(Data) {
+    try {
+        const response = await axios.post(`${API_BASE_URL}/auth/updateInformation`, { Data});
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // Exports
 module.exports = {
     getOtp,
-    LoginUser
+    LoginUser,
+    SignUp,
+    UpdateInformation,
 };
